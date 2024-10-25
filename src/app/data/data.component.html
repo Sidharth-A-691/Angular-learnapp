@@ -57,3 +57,27 @@
     <h4>Free delivery on all orders above ₹500</h4>
     <h4>20% discount on all purchases above ₹2000</h4>
 </ng-template>
+
+<div>
+    <table id="table2">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Brand</th>
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products2">
+                <td>{{ product.productId }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.qty }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
