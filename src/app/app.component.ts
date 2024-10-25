@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learnapp';
+   x : number = 10;
+   y : number = 20;
+
+   public product():number
+   {
+     return this.x * this.y;
+   }
 }

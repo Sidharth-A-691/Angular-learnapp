@@ -1,0 +1,59 @@
+<div>
+    <h1>This is the data component!</h1>
+    <h2>Product ID: {{ productId }}</h2>
+    <h2>Description: {{ description }}</h2>
+    <h2>Price: {{ price }}</h2>
+    <h2>Brand: {{ brand }}</h2>
+    <h2>In Stock: {{ isAvailable ? 'Yes' : 'No' }}</h2>
+    <h3>
+        <input type="number" name="orderQty" [(ngModel)]="orderQty" min="1" [max]="availableQty" />
+        <input type="button" name="orderBtn" value="Order Now" (click)="placeOrder()" [disabled]="orderQty <= 0" />
+        Ordered Quantity: {{ orderQty }}
+    </h3>
+</div>
+
+<h3>Free Shipping: <span [style.background-color]="freeShipping ? 'green' : 'red'">{{ freeShipping }}</span></h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Available Qty</th>
+            <th>Order Now</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.productId }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.availableQty }}</td>
+            <td>
+                <input type="button" name="orderBtn" value="Order Now" (click)="placeOrder1(product)" [disabled]="product.availableQty <= 0" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <h2>Are you a member?</h2>
+    <input type="checkbox" name="member" [(ngModel)]="isMember" />
+</div>
+
+<div *ngIf="isMember; else nonmember">
+    <h2>Members Area</h2>
+    <h3>The following are the offers:</h3>
+    <h4>Discount vouchers up to ₹500 on Dominoes</h4>
+    <h4>5% discount on all purchases above ₹1000</h4>
+</div>
+
+<ng-template #nonmember>
+    <h2>Customer Area</h2>
+    <h3>The following are the offers:</h3>
+    <h4>Free delivery on all orders above ₹500</h4>
+    <h4>20% discount on all purchases above ₹2000</h4>
+</ng-template>
