@@ -3,7 +3,7 @@ import { DataService } from '../data.service';
 import { Product } from '../Product';
 
 interface Products {
-    productId: number;
+    id: number;
     description: string;
     brand: string;
     price: number;
@@ -27,11 +27,11 @@ export class DataComponent implements OnInit {
     freeShipping: boolean = true; 
 
     products: Products[] = [
-        { productId: 1, description: '15 Pro Max', brand: 'Apple', price: 20000, availableQty: 100 },
-        { productId: 2, description: 'Fold 3', brand: 'Samsung', price: 10000, availableQty: 200 },
-        { productId: 3, description: 'Foldable', brand: 'BlackBerry', price: 5000, availableQty: 300 },
-        { productId: 4, description: 'Tablet', brand: 'OnePlus', price: 40000, availableQty: 400 },
-        { productId: 5, description: 'Triple Fold', brand: 'Xaomi', price: 50000, availableQty: 500 }
+        { id: 1, description: '15 Pro Max', brand: 'Apple', price: 20000, availableQty: 100 },
+        { id: 2, description: 'Fold 3', brand: 'Samsung', price: 10000, availableQty: 200 },
+        { id: 3, description: 'Foldable', brand: 'BlackBerry', price: 5000, availableQty: 300 },
+        { id: 4, description: 'Tablet', brand: 'OnePlus', price: 40000, availableQty: 400 },
+        { id: 5, description: 'Triple Fold', brand: 'Xaomi', price: 50000, availableQty: 500 }
     ];
 
     public placeOrder(): void {

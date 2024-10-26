@@ -6,17 +6,21 @@ import { DataComponent } from './data/data.component';
 import { FormsModule } from '@angular/forms';
 import { CarComponent } from './car/car.component';
 import { CardComponent } from './card/card.component';
+import { HttpComponent } from './http/http.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataComponent,
     CarComponent,
-    CardComponent
+    CardComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

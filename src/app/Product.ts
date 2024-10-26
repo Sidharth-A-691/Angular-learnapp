@@ -1,13 +1,13 @@
  export class Product {
-    productId: string;
+    id: any;
     description: string;
     brand: string;
     price: number;
     qty: number;
 
-constructor (productId: string, description: string, brand: string, price: number, qty: number)
+constructor (id: any, description: string, brand: string, price: number, qty: number)
 {
-    this.productId = productId;
+    this.id = id;
     this.description = description;
     this.brand = brand;
     this.price = price;

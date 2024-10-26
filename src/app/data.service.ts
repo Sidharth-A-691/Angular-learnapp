@@ -1,6 +1,8 @@
 // data.service.ts
 import { Injectable } from '@angular/core';  
 import { Product } from './Product';
+import {HttpClient} from '@angular/common/http';  
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ import { Product } from './Product';
 export class DataService {
   private products: Product[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient){
     this.products.push(new Product('s1021', 'Tata', 'Dish TV', 2500, 10));
     this.products.push(new Product('K3023', 'Wipro', 'Blubs', 300, 210));
     this.products.push(new Product('mp3421', 'TVS', 'Belts', 5500, 210));
@@ -24,5 +26,28 @@ export class DataService {
 
   getProducts(): Product[] {
     return this.products;
+  }
+
+  fetchAllProducts():Observable<any> 
+  {
+    const url="http://localhost:8090/product/api1.0/productsinfo";
+    return this.http.get(url);
+  }
+
+  addProduct(product:Product):Observable<any> 
+  {
+    const url="http://localhost:8090/product/api1.0/addProduct";
+    return this.http.post(url,product);
+  }
+
+  deleteProduct(productId:any):Observable<any>
+  {
+    const url="http://localhost:8090/product/api1.0/delete/"+productId;
+    return this.http.delete(url);
+  }
+  modifyProduct(product:Product):Observable<any>
+  {
+    const url="http://localhost:8090/product/api1.0/modify";
+    return this.http.put(url,product);
   }
 }
