@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
+import { FormbuilderComponent } from './formbuilder/formbuilder.component';
+//import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { CreateComponent } from './create/create.component';
     CardComponent,
     HttpComponent,
     ReactiveComponent,
-    CreateComponent
+    CreateComponent,
+    FormbuilderComponent,
   ],
   imports: [
     BrowserModule,

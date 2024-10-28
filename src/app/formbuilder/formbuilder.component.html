@@ -1,0 +1,56 @@
+<h2>Create a Product - FormBuilder</h2>
+<div class="container1">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="productId" class="form-label">Product ID</label>
+                <input type="text" class="form-control" id="productId" formControlName="productId" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="brand" class="form-label">Brand</label>
+                <input type="text" class="form-control" id="brand" formControlName="brand" />
+            </div>
+        </div>
+
+        <fieldset class="mb-3 border p-3 rounded">
+            <legend class="px-2">Description</legend>
+            <div formGroupName="description">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="text" class="form-control" id="age" formControlName="age" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="seasons" class="form-label">Seasons</label>
+                        <input type="text" class="form-control" id="seasons" formControlName="seasons" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="qty" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="qty" formControlName="qty" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" formControlName="price" />
+            </div>
+        </div>
+
+        <div formArrayName="suppliers" class="mb-3">
+            <label class="form-label">Suppliers</label>
+            <button type="button" class="btn btn-secondary mb-2" (click)="addNewSupplier()">Add New Supplier</button>
+
+            <div *ngFor="let supplier of suppliers.controls; let i = index">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" [formControlName]="i" placeholder="New Supplier" />
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Submit</button>
+    </form>
+</div>
